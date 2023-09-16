@@ -9,5 +9,4 @@ public class AppConstants {
 
     public static final String SORT_DIR="asc";
 
-    public static final String USER="manauwarcode";
 }
