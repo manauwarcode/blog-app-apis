@@ -9,4 +9,6 @@ public class AppConstants {
 
     public static final String SORT_DIR="asc";
 
+    public static final long JWT_TOKEN_VALIDITY = 5 * 60 *60;
+
 }
