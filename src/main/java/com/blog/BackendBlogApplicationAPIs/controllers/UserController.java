@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,9 @@ public class UserController {
         UserDTO updateUser = this.userService.updateUser(userDTO,userID);
         return ResponseEntity.ok(updateUser);
     }
+
+    //ADMIN
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{userID}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable Integer userID){
         this.userService.deleteUser(userID);

@@ -1,5 +1,6 @@
 package com.blog.BackendBlogApplicationAPIs.controllers;
 
+import com.blog.BackendBlogApplicationAPIs.exceptions.APiException;
 import com.blog.BackendBlogApplicationAPIs.payloads.JWTAuthRequest;
 import com.blog.BackendBlogApplicationAPIs.payloads.JWTAuthResponse;
 import com.blog.BackendBlogApplicationAPIs.security.JWTTokenHelper;
@@ -28,7 +29,7 @@ public class AuthController {
 
 
     @PostMapping("/login")
-    public ResponseEntity<JWTAuthResponse> createToken(@RequestBody JWTAuthRequest request){
+    public ResponseEntity<JWTAuthResponse> createToken(@RequestBody JWTAuthRequest request) throws Exception {
         this.authenticate(request.getUsername(),request.getPassword());
         UserDetails user = this.userDetailsService.loadUserByUsername(request.getUsername());
         String token = this.jwtTokenHelper.generateToken(user);
@@ -37,8 +38,12 @@ public class AuthController {
         return new ResponseEntity<JWTAuthResponse>(jwtAuthResponse,HttpStatus.OK);
     }
 
-    private void authenticate(String username, String password){
+    private void authenticate(String username, String password) throws Exception {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-        this.authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+        try{
+            this.authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+        }catch (BadCredentialsException e){
+            throw new APiException("Invalid Username or password");
+        }
     }
 }
