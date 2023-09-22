@@ -1,12 +1,16 @@
 package com.blog.BackendBlogApplicationAPIs.services.impl;
 
+import com.blog.BackendBlogApplicationAPIs.config.AppConstants;
+import com.blog.BackendBlogApplicationAPIs.entities.Role;
 import com.blog.BackendBlogApplicationAPIs.entities.User;
 import com.blog.BackendBlogApplicationAPIs.exceptions.ResourceNotFoundException;
 import com.blog.BackendBlogApplicationAPIs.payloads.UserDTO;
+import com.blog.BackendBlogApplicationAPIs.repositories.RoleRepo;
 import com.blog.BackendBlogApplicationAPIs.repositories.UserRepo;
 import com.blog.BackendBlogApplicationAPIs.services.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +21,10 @@ public class UserServiceImpl implements UserService {
     private UserRepo userRepo;
     @Autowired
     private ModelMapper modelMapper;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private RoleRepo roleRepo;
     @Override
     public UserDTO createUser(UserDTO userDTO) {
        User user = this.dtoToUser(userDTO);
@@ -66,5 +74,16 @@ public class UserServiceImpl implements UserService {
 //        userDTO.setPassword(user.getPassword());
 //        userDTO.setAbout(user.getAbout());
         return userDTO;
+    }
+
+    public UserDTO registerNewUser(UserDTO userDTO){
+        User user = this.modelMapper.map(userDTO,User.class);
+        String password = user.getPassword();
+        password = password == null ? "default" : password;
+        user.setPassword(this.passwordEncoder.encode(password));
+        Role role = this.roleRepo.findById(AppConstants.ROLE_USER).get();
+        user.getRoles().add(role);
+        User savedUser = this.userRepo.save(user);
+        return this.modelMapper.map(savedUser,UserDTO.class);
     }
 }
