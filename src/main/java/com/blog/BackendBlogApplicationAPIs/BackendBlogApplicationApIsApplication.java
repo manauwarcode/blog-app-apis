@@ -3,8 +3,10 @@ package com.blog.BackendBlogApplicationAPIs;
 import com.blog.BackendBlogApplicationAPIs.config.AppConstants;
 import com.blog.BackendBlogApplicationAPIs.entities.Role;
 import com.blog.BackendBlogApplicationAPIs.repositories.RoleRepo;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.License;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -13,13 +15,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 @SpringBootApplication
+@OpenAPIDefinition(info = @Info(title = "Spring Boot Blog Application API's",version = "1.0",
+		contact = @Contact(name = "Manauwar Ansari",email = "manauwar.zansari@gmail.com")))
 public class BackendBlogApplicationApIsApplication implements CommandLineRunner {
 
 	@Autowired
@@ -47,15 +48,18 @@ public class BackendBlogApplicationApIsApplication implements CommandLineRunner 
 			Role role = new Role();
 			role.setId(AppConstants.ROLE_ADMIN);
 			role.setName("ROLE_ADMIN");
+			this.roleRepo.save(role);
 
 			Role role1 = new Role();
 			role1.setId(AppConstants.ROLE_USER);
 			role1.setName("ROLE_USER");
+			this.roleRepo.save(role1);
 
-			List<Role> roles = List.of(role,role1);
-			List<Role> savedRoles = this.roleRepo.saveAll(roles);
+			/*Role role2 = new Role();
+			role2.setId(AppConstants.ROLE_CONSULTANT);
+			role2.setName("ROLE_CONSULTANT");
+			this.roleRepo.save(role2);*/
 
-			savedRoles.forEach(r -> System.out.println(r.getName()));
 		}catch (Exception e){
 
 		}

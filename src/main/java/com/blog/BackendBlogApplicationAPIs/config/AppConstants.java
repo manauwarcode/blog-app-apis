@@ -9,5 +9,6 @@ public class AppConstants {
     public static final long JWT_TOKEN_VALIDITY = 5 * 60 *60;
     public static final Integer ROLE_USER=2;
     public static final Integer  ROLE_ADMIN=1;
+    public static final Integer ROLE_CONSULTANT=3;
 
 }
