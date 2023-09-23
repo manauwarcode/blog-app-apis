@@ -3,10 +3,9 @@ package com.blog.BackendBlogApplicationAPIs;
 import com.blog.BackendBlogApplicationAPIs.config.AppConstants;
 import com.blog.BackendBlogApplicationAPIs.entities.Role;
 import com.blog.BackendBlogApplicationAPIs.repositories.RoleRepo;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
-import io.swagger.v3.oas.annotations.info.License;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,7 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import java.util.List;
 
 
 @SpringBootApplication

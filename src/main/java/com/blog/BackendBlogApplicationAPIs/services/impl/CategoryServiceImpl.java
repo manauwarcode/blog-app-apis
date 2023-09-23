@@ -5,7 +5,6 @@ import com.blog.BackendBlogApplicationAPIs.exceptions.ResourceNotFoundException;
 import com.blog.BackendBlogApplicationAPIs.payloads.CategoryDTO;
 import com.blog.BackendBlogApplicationAPIs.repositories.CategoryRepo;
 import com.blog.BackendBlogApplicationAPIs.services.CategoryService;
-import lombok.Setter;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

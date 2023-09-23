@@ -1,15 +1,11 @@
 package com.blog.BackendBlogApplicationAPIs.payloads;
 
-import com.blog.BackendBlogApplicationAPIs.entities.Category;
-import com.blog.BackendBlogApplicationAPIs.entities.Comment;
-import com.blog.BackendBlogApplicationAPIs.entities.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.PrimitiveIterator;
 import java.util.Set;
 
 @Getter

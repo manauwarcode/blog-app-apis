@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.services.impl;
 
-import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.services.FileService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

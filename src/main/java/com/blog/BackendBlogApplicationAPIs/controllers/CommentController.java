@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.controllers;
 
-import com.blog.BackendBlogApplicationAPIs.entities.Comment;
 import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.payloads.CommentDTO;
 import com.blog.BackendBlogApplicationAPIs.services.CommentService;

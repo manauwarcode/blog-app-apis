@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.services;
 
-import com.blog.BackendBlogApplicationAPIs.entities.User;
 import com.blog.BackendBlogApplicationAPIs.payloads.UserDTO;
 
 import java.util.List;

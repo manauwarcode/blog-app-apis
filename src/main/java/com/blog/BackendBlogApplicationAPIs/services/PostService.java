@@ -1,10 +1,7 @@
 package com.blog.BackendBlogApplicationAPIs.services;
 
-import com.blog.BackendBlogApplicationAPIs.entities.Post;
 import com.blog.BackendBlogApplicationAPIs.payloads.PostDTO;
 import com.blog.BackendBlogApplicationAPIs.payloads.PostResponse;
-import com.blog.BackendBlogApplicationAPIs.payloads.UserDTO;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.util.List;
 

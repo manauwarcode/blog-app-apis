@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.controllers;
 
-import com.blog.BackendBlogApplicationAPIs.entities.User;
 import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.payloads.UserDTO;
 import com.blog.BackendBlogApplicationAPIs.services.UserService;

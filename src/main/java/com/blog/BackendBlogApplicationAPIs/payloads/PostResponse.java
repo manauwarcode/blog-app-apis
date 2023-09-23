@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.payloads;
 
-import com.blog.BackendBlogApplicationAPIs.entities.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

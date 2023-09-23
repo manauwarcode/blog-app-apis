@@ -1,6 +1,5 @@
 package com.blog.BackendBlogApplicationAPIs.services;
 
-import com.blog.BackendBlogApplicationAPIs.entities.Role;
 import com.blog.BackendBlogApplicationAPIs.payloads.RoleDTO;
 
 import java.util.List;
