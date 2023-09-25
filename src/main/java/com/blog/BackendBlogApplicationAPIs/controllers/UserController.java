@@ -3,6 +3,7 @@ package com.blog.BackendBlogApplicationAPIs.controllers;
 import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.payloads.UserDTO;
 import com.blog.BackendBlogApplicationAPIs.services.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@SecurityRequirement(name = "Authorization")
 public class UserController {
     @Autowired
     private UserService userService;

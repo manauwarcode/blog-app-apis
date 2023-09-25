@@ -4,8 +4,11 @@ import com.blog.BackendBlogApplicationAPIs.config.AppConstants;
 import com.blog.BackendBlogApplicationAPIs.entities.Role;
 import com.blog.BackendBlogApplicationAPIs.repositories.RoleRepo;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeIn;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Contact;
 import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 @OpenAPIDefinition(info = @Info(title = "Spring Boot Blog Application API's",version = "1.0",
 		contact = @Contact(name = "Manauwar Ansari",email = "manauwar.zansari@gmail.com")))
+@SecurityScheme(name = "Authorization" , scheme = "basic",type = SecuritySchemeType.APIKEY,in = SecuritySchemeIn.HEADER)
 public class BackendBlogApplicationApIsApplication implements CommandLineRunner {
 
 	@Autowired

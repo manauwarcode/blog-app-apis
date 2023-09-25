@@ -3,6 +3,7 @@ package com.blog.BackendBlogApplicationAPIs.controllers;
 import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.payloads.CommentDTO;
 import com.blog.BackendBlogApplicationAPIs.services.CommentService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/")
+@SecurityRequirement(name = "Authorization")
 public class CommentController {
     @Autowired
     private CommentService commentService;

@@ -6,6 +6,7 @@ import com.blog.BackendBlogApplicationAPIs.payloads.PostDTO;
 import com.blog.BackendBlogApplicationAPIs.payloads.PostResponse;
 import com.blog.BackendBlogApplicationAPIs.services.FileService;
 import com.blog.BackendBlogApplicationAPIs.services.PostService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/")
+@SecurityRequirement(name = "Authorization")
 public class PostController {
     @Autowired
     private PostService postService;

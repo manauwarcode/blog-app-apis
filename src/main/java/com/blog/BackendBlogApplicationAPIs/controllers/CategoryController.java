@@ -3,6 +3,7 @@ package com.blog.BackendBlogApplicationAPIs.controllers;
 import com.blog.BackendBlogApplicationAPIs.payloads.ApiResponse;
 import com.blog.BackendBlogApplicationAPIs.payloads.CategoryDTO;
 import com.blog.BackendBlogApplicationAPIs.services.CategoryService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
+@SecurityRequirement(name = "Authorization")
 public class CategoryController {
 
     @Autowired
